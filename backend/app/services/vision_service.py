@@ -33,11 +33,18 @@ class VisionService:
     def _init_clients(self):
         if settings.AZURE_OPENAI_ENDPOINT and settings.AZURE_OPENAI_API_KEY:
             try:
+                # Sanitize endpoint: strip any trailing /openai/v1, /openai, or trailing slashes
+                endpoint = settings.AZURE_OPENAI_ENDPOINT.strip().rstrip("/")
+                if endpoint.endswith("/openai/v1"):
+                    endpoint = endpoint[:-10].rstrip("/")
+                elif endpoint.endswith("/openai"):
+                    endpoint = endpoint[:-7].rstrip("/")
+
                 self.azure_client = AzureOpenAI(
-                    azure_endpoint=settings.AZURE_OPENAI_ENDPOINT,
+                    azure_endpoint=endpoint,
                     api_key=settings.AZURE_OPENAI_API_KEY,
                     api_version=settings.AZURE_OPENAI_API_VERSION,
-                    timeout=20.0,
+                    timeout=15.0,
                 )
                 logger.info("Azure AI Foundry Vision client initialized successfully.")
             except Exception as e:
