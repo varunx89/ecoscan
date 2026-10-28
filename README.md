@@ -270,13 +270,14 @@ npm run build
 ## 📲 Live Deployments
 
 - **GitHub Repository**: [https://github.com/varunx89/ecoscan](https://github.com/varunx89/ecoscan)
-- **Live Web Application (Frontend)**: [https://ecoscan-frontend-ztee.onrender.com](https://ecoscan-frontend-ztee.onrender.com)
+- **Live Frontend on Vercel**: [https://frontend-smoky-six-16.vercel.app](https://frontend-smoky-six-16.vercel.app)
+- **Live Frontend on Render**: [https://ecoscan-frontend-ztee.onrender.com](https://ecoscan-frontend-ztee.onrender.com)
 - **Live API Documentation (Swagger UI)**: [https://ecoscan-api-vd49.onrender.com/api/v1/docs](https://ecoscan-api-vd49.onrender.com/api/v1/docs)
 - **Live API Health Check**: [https://ecoscan-api-vd49.onrender.com/api/v1/health](https://ecoscan-api-vd49.onrender.com/api/v1/health)
 
 ### Deployment Configuration
 - **Backend**: Deployed to Render via `render-cli` (`render.yaml` Blueprint, free tier web service, running Uvicorn on Python).
-- **Frontend**: Deployed to Render Static Sites with auto-routing to the live backend API, and configured for Vercel via `vercel.json` rewrites.
+- **Frontend**: Deployed to Vercel via `vercel-cli` with seamless `/api` rewrite proxying to Render, and mirrored on Render Static Sites.
 
 ---
 
