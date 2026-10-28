@@ -267,10 +267,16 @@ npm run build
 
 ---
 
-## 📲 Deployment
+## 📲 Live Deployments
 
-- **Backend**: Can be deployed to Azure App Services, Render, or Railway via Docker (`uvicorn app.main:app --host 0.0.0.0 --port $PORT`).
-- **Frontend**: Can be deployed directly to Vercel, Netlify, or Azure Static Web Apps with `npm run build` and `VITE_API_BASE_URL` pointing to the backend.
+- **GitHub Repository**: [https://github.com/varunx89/ecoscan](https://github.com/varunx89/ecoscan)
+- **Live Web Application (Frontend)**: [https://ecoscan-frontend-ztee.onrender.com](https://ecoscan-frontend-ztee.onrender.com)
+- **Live API Documentation (Swagger UI)**: [https://ecoscan-api-vd49.onrender.com/api/v1/docs](https://ecoscan-api-vd49.onrender.com/api/v1/docs)
+- **Live API Health Check**: [https://ecoscan-api-vd49.onrender.com/api/v1/health](https://ecoscan-api-vd49.onrender.com/api/v1/health)
+
+### Deployment Configuration
+- **Backend**: Deployed to Render via `render-cli` (`render.yaml` Blueprint, free tier web service, running Uvicorn on Python).
+- **Frontend**: Deployed to Render Static Sites with auto-routing to the live backend API, and configured for Vercel via `vercel.json` rewrites.
 
 ---
 
